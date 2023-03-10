@@ -111,7 +111,7 @@ function setQuery(query){
 }
 
 function hasQuery(){
-    return getQuery().length > 0
+    return true;
 }
 
 function highlightQueryBox(){
