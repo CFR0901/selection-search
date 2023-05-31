@@ -17,7 +17,7 @@ tools.
   destination of your choice.
 - Open the extension screen of your browser: [chrome://extensions](chrome://extensions).
   - The Extension Management page can also be opened by clicking on the Chrome menu, hovering over
-    More Tools then selecting Extensions.
+    "More Tools" then selecting "Extensions".
 - Enable Developer Mode by clicking the toggle switch next to Developer mode.
 - Press "Load Unpacked" and select the unpacked folder.
 
