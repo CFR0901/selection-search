@@ -21,7 +21,8 @@ tools.
 
 ## Configuration
 
-A configuration based on time management needs is already provided in [settings](settings)
+A configuration based on time management needs is already provided in [settings](settings) and can
+be used for import into the extension's settings.
 
 ## Changelog
 
