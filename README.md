@@ -8,12 +8,27 @@ and
 * https://chrome.google.com/webstore/detail/selection-search/gipnlpdeieaidmmeaichnddnmjmcakoe
 * https://addons.mozilla.org/en-US/firefox/addon/selection-search-ff/
 
+## Installation
+
+As this add-on is not made available in the extension stores, you need to import it via developer
+tools.
+
+- Download the zip archive or clone the repository onto your computer. Unpack the archive into a
+  destination of your choice.
+- Open the extension screen of your browser
+- Activate developer tools
+- Press "Load Unpacked Extension" and select the unpacked folder
+
+## Configuration
+
+- A configuration based on time management needs is already provided in [settings](settings)
+
 ## Changelog
 
 *0.8.63*
 
-- Added new buttons to allow adding new search engines/separators/submenus at specific positions in the search engine list
-
+- Added new buttons to allow adding new search engines/separators/submenus at specific positions in
+  the search engine list
 
 *0.8.62*
 
