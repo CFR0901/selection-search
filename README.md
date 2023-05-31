@@ -21,7 +21,7 @@ tools.
 
 ## Configuration
 
-- A configuration based on time management needs is already provided in [settings](settings)
+A configuration based on time management needs is already provided in [settings](settings)
 
 ## Changelog
 
