@@ -23,7 +23,9 @@ tools.
 
 ## Configuration
 
-A configuration based on time management needs is already provided in [settings](settings) and can
+A configuration based on time management needs is already provided
+in [Settings](https://github.tools.sap/D068075/selection-search-settings/tree/main/settings) in SAP
+Tools Github and can
 be used for import into the extension's settings.
 
 ## Changelog
