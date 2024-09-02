@@ -243,6 +243,11 @@ chrome.tabs.query({active: true, currentWindow: true}, tabs =>{
         utils.addVariables(tabs[0].url);
 
         chrome.tabs.sendMessage(tabs[0].id, {action: "getSelection"}, {frameId: 0}, function(response){
+
+            if(BrowserSupport.hasLastError()){
+                return
+            }
+
             if(response !== undefined && response.selection !== undefined){
                 setQuery(response.selection);
             }
@@ -254,7 +259,6 @@ chrome.tabs.query({active: true, currentWindow: true}, tabs =>{
 function openFirstSearch(){
     document.querySelector('.engine a').click();
 }
-
 
 chrome.runtime.sendMessage({action:"getContentScriptData"}, function(response){
 
@@ -274,21 +278,25 @@ chrome.runtime.sendMessage({action:"getContentScriptData"}, function(response){
         response.icons.forEach((iconUrl, index) => {
             images[index].src = iconUrl
         });
+
+        if (response.needsCurrentDomain){
+            chrome.tabs.query({active: true, currentWindow: true}, tabs =>{
+                if(tabs.length == 1 && tabs[0].id != undefined){
+                    chrome.runtime.sendMessage({action: "getCurrentDomainIconToolbar", url: tabs[0].url}, function(response){
+                        if(response !== undefined && response.indexes.length > 0 && response.icon){
+                            var images = document.querySelectorAll(".engine .engine-img");
+                            response.indexes.forEach((iconIndex) => {
+                                images[iconIndex].src = response.icon;
+                            })
+
+                        }
+                    });
+                }
+            })
+        }
+
     });
 
-    chrome.tabs.query({active: true, currentWindow: true}, tabs =>{
-        if(tabs.length == 1 && tabs[0].id != undefined){
-            chrome.runtime.sendMessage({action: "getCurrentDomainIconToolbar", url: tabs[0].url}, function(response){
-                if(response !== undefined && response.indexes.length > 0){
-                    var images = document.querySelectorAll(".engine .engine-img");
-                    response.indexes.forEach((iconIndex) => {
-                        images[iconIndex].src = response.icon;
-                    })
-
-                }
-            });
-        }
-    })
 
     hideSuggestions();
     // Show top level menu
@@ -310,7 +318,7 @@ chrome.runtime.sendMessage({action:"getContentScriptData"}, function(response){
         if(e.code == 'Enter' && hasQuery()){
             if(!isSuggestionsActive() || !hasActiveSuggestion()){
                 openFirstSearch();
-                window.close();
+                setTimeout(window.close, 10)
                 return;
             }
         }else if(!isSuggestionsActive() || !response.options.toolbar_popup_suggestions){

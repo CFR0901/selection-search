@@ -160,6 +160,7 @@ function Popup(options, style){
 
         var img = document.createElement("img");
         img.className = "engine-img";
+        img.referrerPolicy = "no-referrer"
         img.src = url;
         return img;
 

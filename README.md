@@ -30,6 +30,45 @@ be used for import into the extension's settings.
 
 ## Changelog
 
+*0.9.3*
+- Fix issue where some icons failing to load could trigger a loop in the image loading, which could
+  cause high CPU usage and pages failing to load.
+  *This was caused by a use_dynamic_url feature in chrome which seems to not be fully implemented
+  causing some internal icons to not be accessible by the extension.
+  use_dynamic_url has been disabled until this is fixed in Chrome.*
+
+
+*0.9.2*
+- Improvements to icon loading. The icons are now loaded in the background worker, similar to
+  how it was done in the 0.8.* versions of the extensions. This should make the icons load faster
+  and with less chance of icons failing to load.
+
+  **Note**: The icons are cached in the sessions store provided by the browser.
+  This storage has limited capacity.
+  If you have a lot of search engines or have many large custom icons, you can hit the limit.
+  This will cause some icons to fail to load. If this happens try to use smaller icons if you
+  have custom icons. If that does not help report the issue as it may be possible to make the
+  usage of the storage more efficient if necessary.
+
+  You can also hit the limit if you make a lot of changes to your search engines in one go,
+  but this should be fixable by just restarting the browser as this will cleanup old entries
+  in the storage.
+
+*0.9.1*
+
+- Fix issue with context menu items requiring two clicks to work
+- Fix issue where the context menu items was not added properly
+- Fix issue where hitting enter in the toolbar search box would not open the first search engine
+- Changed icon loading to use the icon urls directly, instead of loading the
+  icons in the background, as the background loading does not work properly
+  with manifest v3. This will probably also fix some issues where custom
+  svg images would not load.
+
+*0.9.0*
+
+- Rewrite of internals to migrate the extension to manifest V3, as required by Chrome.
+- No new features or bug fixes in this realease.
+
 *0.8.64*
 
 - Added search-url variable PAGE_QS_VAR_NO_ENCODING to add query string variables without encoding (
