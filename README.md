@@ -30,13 +30,26 @@ be used for import into the extension's settings.
 
 ## Changelog
 
+*0.9.6*
+- Fix issue where icons in some cases could fail to load because the fallback icon loading did
+  not work. This may improve the icon loading for some users.
+
+*0.9.5*
+- Add option to trigger "open all" feature on submenues with middle click only.
+- Make back button in toolbar button go back only one level at the time
+- Fix issue where "open all" on submenues could crash if the submenu contained separators
+- Change default search engines on new installs to use https
+
+*0.9.4*
+- Add ability to customize the toolbar popup with css
+- Include separators in the toolbar popup. Hidden by default, but can be made visible with custom css.
+
 *0.9.3*
 - Fix issue where some icons failing to load could trigger a loop in the image loading, which could
   cause high CPU usage and pages failing to load.
   *This was caused by a use_dynamic_url feature in chrome which seems to not be fully implemented
   causing some internal icons to not be accessible by the extension.
   use_dynamic_url has been disabled until this is fixed in Chrome.*
-
 
 *0.9.2*
 - Improvements to icon loading. The icons are now loaded in the background worker, similar to

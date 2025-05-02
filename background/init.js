@@ -75,6 +75,8 @@ function Background(_previousVersion) {
                 return getIcons(_iconCollectionPopup, sendResponse);
             case "getToolbarIcons":
                 return getIcons(_iconCollectionToolbar, sendResponse);
+            case "getToolbarOptions":
+                return getToolbarOptions(sendResponse);
             case "getOptions":
                 return getOptions(sendResponse);
             case "copyToClipboard":
@@ -146,7 +148,7 @@ function Background(_previousVersion) {
 
 function initBackground(){
 
-    let CURRENT_VERSION = '0.9.3';
+    let CURRENT_VERSION = '0.9.6';
 
     return storageLocalSyncInit(Storage).then(values => {
 
