@@ -30,6 +30,15 @@ be used for import into the extension's settings.
 
 ## Changelog
 
+*0.9.8*
+- Remove search engine icon source that no longer works (faviconkit). This could in some cases cause
+  a blank icon to get loaded.
+
+*0.9.7*
+- Improve support for IME input in toolbar popup (See issue #173)
+- Change to use a html class to shown/hidden the popup menu to make it easier to override
+  the display property of the popup with custom CSS.
+
 *0.9.6*
 - Fix issue where icons in some cases could fail to load because the fallback icon loading did
   not work. This may improve the icon loading for some users.
