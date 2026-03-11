@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Test - Direct Console Method</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .instruction-box {
+            background: #e3f2fd;
+            padding: 20px;
+            border-left: 5px solid #2196F3;
+            margin: 20px 0;
+        }
+        .code-box {
+            background: #f5f5f5;
+            padding: 15px;
+            border: 1px solid #ddd;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        h2 {
+            color: #1976D2;
+        }
+        .step {
+            background: #fff;
+            padding: 15px;
+            margin: 15px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        .step h3 {
+            margin-top: 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Debug Instructions - Use Browser Console</h1>
+
+    <div class="instruction-box">
+        <h2>⚠️ The buttons don't work because extensions need special permissions</h2>
+        <p>Instead, we'll use the browser's Console to check values directly.</p>
+    </div>
+
+    <div class="step">
+        <h3>Method 1: Check in Toolbar Popup</h3>
+        <ol>
+            <li>Click the <strong>Selection Search icon</strong> in your toolbar (top-right of browser)</li>
+            <li>The toolbar popup will open</li>
+            <li><strong>Right-click anywhere</strong> in that popup window</li>
+            <li>Select <strong>"Inspect"</strong> from the context menu</li>
+            <li>DevTools will open - click the <strong>"Console"</strong> tab</li>
+            <li>Type these commands one at a time and press Enter after each:</li>
+        </ol>
+
+        <div class="code-box">
+            cachedOptions
+        </div>
+        <p>👆 This shows all options. Look for <code>allow_engines_without_selection: true</code></p>
+
+        <div class="code-box">
+            hasQuery()
+        </div>
+        <p>👆 Should return <code>true</code> if option is enabled</p>
+
+        <div class="code-box">
+            getQuery()
+        </div>
+        <p>👆 Shows what's in the search box (should be empty <code>""</code>)</p>
+    </div>
+
+    <div class="step">
+        <h3>Method 2: Check in Options Page</h3>
+        <ol>
+            <li>Open the <strong>Selection Search options</strong> page</li>
+            <li>Press <strong>F12</strong> to open DevTools</li>
+            <li>Go to <strong>Console</strong> tab</li>
+            <li>Type this command:</li>
+        </ol>
+
+        <div class="code-box">
+            chrome.storage.local.get('options', (data) => console.log(data.options))
+        </div>
+        <p>👆 This shows the saved options. Look for <code>allow_engines_without_selection: true</code></p>
+    </div>
+
+    <div class="step">
+        <h3>Method 3: Check Background Service Worker</h3>
+        <ol>
+            <li>Go to <code>chrome://extensions/</code></li>
+            <li>Find <strong>Selection Search</strong></li>
+            <li>Click <strong>"service worker"</strong> (it's blue link text)</li>
+            <li>In the DevTools that opens, go to <strong>Console</strong> tab</li>
+            <li>Type:</li>
+        </ol>
+
+        <div class="code-box">
+            Storage.getOptions()
+        </div>
+        <p>👆 Shows all options including <code>allow_engines_without_selection</code></p>
+    </div>
+
+    <div class="step">
+        <h3>What to Look For</h3>
+        <p>In any of the above methods, you should see:</p>
+        <div class="code-box">
+            {
+                ...
+                allow_engines_without_selection: true,
+                ...
+            }
+        </div>
+        <p><strong>If you see <code>false</code> or it's missing:</strong></p>
+        <ul>
+            <li>The option wasn't saved properly</li>
+            <li>Try enabling it again and clicking Save</li>
+            <li>Then reload the extension at chrome://extensions/</li>
+        </ul>
+    </div>
+
+    <div class="instruction-box">
+        <h2>📝 Report Back</h2>
+        <p>Please tell me:</p>
+        <ol>
+            <li>What value do you see for <code>allow_engines_without_selection</code>?</li>
+            <li>What does <code>hasQuery()</code> return? (from Method 1)</li>
+            <li>Did you enable the Context Menu option as well?</li>
+        </ol>
+    </div>
+
+</body>
+</html>
