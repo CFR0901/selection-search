@@ -31,7 +31,7 @@
 
 
 <h2 class="section-heading">Search engines</h2>
-<p class="info">The search url must start with http:// and contain the special string <strong>%s</strong> which will be replaced with the selected text.
+<p class="info">The search url must start with http://. The special string <strong>%s</strong> will be replaced with the selected text if present. Search engines without %s can still be used when "Allow engines without selection" is enabled in Advanced Settings.
 <br />Searches that uses the POST method must contain a <strong>{POSTARGS}</strong> separator with the post arguments added after it, like this:
 http://example.com/search/<strong>{POSTARGS}</strong>q=<strong>%s</strong>&amp;type=123. <a href="#" id="show-more-variables">More Variables</a>
 
@@ -417,6 +417,21 @@ Previously opened tabs must be reloaded to show the new engines.</p>
 		<p class="section-option">
 			<label for="opt-selection-length-limit">Selection length limit</label>
 			 <input id="opt-selection-length-limit" placeholder="No limit" type="number" name="selection-length-limit" min="0" />
+		</p>
+	</div>
+
+
+	<h4 class="subsection-heading" id="head-allow-engines-without-selection">Allow engines without selection</h4>
+	<div class="subsection">
+		<p class="info">
+			Enable this option to allow the popup to be activated without selecting text first.
+			This is useful for using the extension as a link collection tool for quick navigation to frequently
+			used URLs. When enabled, ALL search engines will appear in popups and context menus even when no text
+			is selected. Engines with %s will search for an empty string; engines without %s will navigate directly.
+		</p>
+		<p class="section-option">
+			<label for="opt-allow-engines-without-selection">Allow engines without selection</label>
+			<input id="opt-allow-engines-without-selection" type="checkbox" name="allow-engines-without-selection" />
 		</p>
 	</div>
 

@@ -55,6 +55,7 @@ function DataStore(kwStore){
         selection_allow_newline: false,
         use_whitelist: false, // If enabled, the blacklist will be used as a whitelist
         use_blacklist_for_hotkeys: true, // If enabled the blacklist will also affect the search engine hotkeys
+        allow_engines_without_selection: false, // Allow the popup to be activated without text selection
     };
 
     var _blacklist = [];
