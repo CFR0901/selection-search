@@ -19,6 +19,7 @@ Selection Search is a Chrome/Firefox browser extension (Manifest V3) that allows
 - Blacklist/whitelist for controlling where popups appear
 - Custom styling and circular menu layouts
 - Special features: copy to clipboard, direct URL opening, POST searches
+- **Optional selection requirement**: Allow popups without text selection (useful for link collections)
 
 ## Architecture
 
@@ -224,3 +225,34 @@ These settings can be imported via the extension's options page.
 - Icons have size limits due to chrome.storage.session quota
 - POST searches are supported via special helper pages in `old/` directory
 - The extension supports both Chrome and Firefox with browser compatibility layer in `common/browsersupport.js`
+
+## Fork-Specific Features
+
+### Allow Engines Without Selection (Optional Selection Requirement)
+
+**Purpose:** Enables using the extension as a link collection tool for quick navigation to frequently used URLs without needing to select text first.
+
+**Option:** `allow_engines_without_selection` (default: `false`)
+- Located in: Advanced Settings → "Allow engines without selection"
+- Saved in: `background/storage.js` default options
+- Exported/imported automatically with other settings
+
+**Implementation Files:**
+- `background/storage.js` - Option storage and defaults
+- `popup/activators.js` - All activators check the option to allow popup without selection
+- `browseraction/popup.js` - `hasQuery()` returns true when option is enabled
+- `background/contextmenu.js` - Adds 'page' context to menu items when enabled
+- `options/options.html` - UI checkbox and documentation
+- `options/options.js` - Save/load functions for the option
+
+**Behavior When Enabled:**
+- Inline popup activators show popup even without text selection
+- Toolbar popup executes search engines without requiring query text
+- Context menu appears in both 'selection' and 'page' contexts (right-click anywhere)
+- ALL search engines appear regardless of having %s placeholder
+- Engines with %s search for empty string; engines without %s navigate directly
+- Page variables (%PAGE_URL, etc.) still work without %s
+
+**Important:** Context menu must also be enabled separately (Menu Activation → Context Menu → "Enabled")
+
+**Use Case Example:** Multiple test environment URLs like `https://test1.example.com/dashboard`, `https://test2.example.com/dashboard` as search engines for quick access.
