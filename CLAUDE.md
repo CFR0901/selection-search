@@ -6,6 +6,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Selection Search is a Chrome/Firefox browser extension (Manifest V3) that allows users to search for selected text using customizable search engines via popup menus, context menus, or keyboard shortcuts.
 
+**Repository:** This is a fork of the original Selection Search extension by Pitmairen.
+- Original repository: https://github.com/Pitmairen/selection-search
+- This fork: https://github.com/CFR0901/selection-search
+
 **Key capabilities:**
 - Inline popup menus that appear when text is selected
 - Context menu integration
