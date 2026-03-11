@@ -30,6 +30,12 @@ be used for import into the extension's settings.
 
 ## Changelog
 
+*0.9.9*
+- Add optional "Allow engines without selection" feature. When enabled, the popup can be activated
+  without text selection, allowing the extension to be used as a link collection tool for quick
+  navigation to frequently used URLs. The feature is disabled by default to maintain backward
+  compatibility. Context menu also appears on page context (right-click anywhere) when enabled.
+
 *0.9.8*
 - Remove search engine icon source that no longer works (faviconkit). This could in some cases cause
   a blank icon to get loaded.
