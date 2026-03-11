@@ -380,6 +380,7 @@ function initOptionsPage(){
 		$("#opt-use-whitelist").attr('checked', response.options.use_whitelist);
 		$("#blacklist-definitions").val(response.blacklist.join('\n'));
 		$("#opt-use-blacklist-for-hotkeys").attr('checked', response.options.use_blacklist_for_hotkeys);
+		$("#opt-allow-engines-without-selection").attr('checked', response.options.allow_engines_without_selection);
 
 		$("#toolbarStyle").val(response.toolbar_style);
 
@@ -647,6 +648,7 @@ function initOptionsPage(){
 			auto_open_delay: auto_open_delay,
 			hide_on_scroll: $('#opt-hide-on-scroll').is(':checked'),
 			use_blacklist_for_hotkeys: $('#opt-use-blacklist-for-hotkeys').is(':checked'),
+			allow_engines_without_selection: $('#opt-allow-engines-without-selection').is(':checked'),
 		});
 
 
