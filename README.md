@@ -8,26 +8,6 @@ and
 * https://chrome.google.com/webstore/detail/selection-search/gipnlpdeieaidmmeaichnddnmjmcakoe
 * https://addons.mozilla.org/en-US/firefox/addon/selection-search-ff/
 
-## Installation for Chrome
-
-As this add-on is not made available in the extension stores, you need to import it via developer
-tools.
-
-- Download the zip archive or clone the repository onto your computer. Unpack the archive into a
-  destination of your choice.
-- Open the extension screen of your browser: [chrome://extensions](chrome://extensions).
-  - The Extension Management page can also be opened by clicking on the Chrome menu, hovering over
-    "More Tools" then selecting "Extensions".
-- Enable Developer Mode by clicking the toggle switch next to Developer mode.
-- Press "Load Unpacked" and select the unpacked folder.
-
-## Configuration
-
-A configuration based on time management needs is already provided
-in [Settings](https://github.tools.sap/D068075/selection-search-settings/tree/main/settings) in SAP
-Tools Github and can
-be used for import into the extension's settings.
-
 ## Changelog
 
 *0.9.9*
