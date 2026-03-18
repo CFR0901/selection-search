@@ -31,7 +31,7 @@
 
 
 <h2 class="section-heading">Search engines</h2>
-<p class="info">The search url must start with http://. The special string <strong>%s</strong> will be replaced with the selected text if present. Search engines without %s can still be used when "Allow engines without selection" is enabled in Advanced Settings.
+<p class="info">The search url must start with http://. The special string <strong>%s</strong> will be replaced with the selected text if present. Search engines without %s can still be used when "Allow engines without selection" is enabled in Other Options.
 <br />Searches that uses the POST method must contain a <strong>{POSTARGS}</strong> separator with the post arguments added after it, like this:
 http://example.com/search/<strong>{POSTARGS}</strong>q=<strong>%s</strong>&amp;type=123. <a href="#" id="show-more-variables">More Variables</a>
 
@@ -421,21 +421,6 @@ Previously opened tabs must be reloaded to show the new engines.</p>
 	</div>
 
 
-	<h4 class="subsection-heading" id="head-allow-engines-without-selection">Allow engines without selection</h4>
-	<div class="subsection">
-		<p class="info">
-			Enable this option to allow the popup to be activated without selecting text first.
-			This is useful for using the extension as a link collection tool for quick navigation to frequently
-			used URLs. When enabled, ALL search engines will appear in popups and context menus even when no text
-			is selected. Engines with %s will search for an empty string; engines without %s will navigate directly.
-		</p>
-		<p class="section-option">
-			<label for="opt-allow-engines-without-selection">Allow engines without selection</label>
-			<input id="opt-allow-engines-without-selection" type="checkbox" name="allow-engines-without-selection" />
-		</p>
-	</div>
-
-
 	<h4 class="subsection-heading" id="head-auto-hide-delay">Auto hide popup</h4>
 	<div class="subsection">
 		<p class="info">
@@ -601,6 +586,13 @@ www.example.com/test
 		(Allow the inline popup and toolbar popup to open when the selection contains newline / linebreak characters.
 		<i>May sometimes cause the popup to open when it is not supposed to.</i>
 		Only affects the inline popup / toolbar popup.)
+</p>
+
+<p class="section-option"><label for="opt-allow-engines-without-selection">Allow engines without selection</label><input id="opt-allow-engines-without-selection" type="checkbox" name="allow-engines-without-selection" />
+		(Enable this option to allow the popup to be activated without selecting text first.
+		This is useful for using the extension as a link collection tool for quick navigation to frequently
+		used URLs. When enabled, ALL search engines will appear in popups and context menus even when no text
+		is selected. Engines with %s will search for an empty string; engines without %s will navigate directly.)
 </p>
 
 </div>
