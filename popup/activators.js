@@ -116,7 +116,7 @@ function ClickActivator(_popup, _options){
                 return;
 
 
-            if(in_input || _this.isPointOnSelection(e.pageX, e.pageY)){
+            if(in_input || _this.isPointOnSelection(e.pageX, e.pageY) || _options.allow_engines_without_selection){
 
                 _this.updatePopupSelection();
 
@@ -321,7 +321,7 @@ function KeyAndMouseActivator(_popup, _options){
 
 
     this.popupShouldOpen = function(e){
-        var comboActive = _is_keyboard_combo_activated() && e.button == _options.button;
+        var comboActive = _is_keyboard_combo_activated() && e.button == _mouseButton;
         if (!comboActive) return false;
         return _this.hasSelection() || _options.allow_engines_without_selection === true;
     }
